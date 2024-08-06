@@ -13,5 +13,24 @@ function reverseString(string) {
   return reverseWord;
 }
 
+const calculator = {};
+
+calculator.add = function add(num1, num2) {
+  return num1 + num2;
+};
+
+calculator.subtract = function subtract(num1, num2) {
+  return num1 - num2;
+};
+
+calculator.divide = function divide(num1, num2) {
+  return num1 / num2;
+};
+
+calculator.multiply = function multiply(num1, num2) {
+  return num1 * num2;
+};
+
 exports.capitalize = capitalize;
 exports.reverseString = reverseString;
+exports.calculator = calculator;
