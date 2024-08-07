@@ -2,6 +2,7 @@ const app = require("./app");
 const capitalize = app.capitalize;
 const reverseString = app.reverseString;
 const calculator = app.calculator;
+const caesarCipher = app.caesarCipher;
 
 test("capitalizes the first letter", () => {
   expect(capitalize("a")).toBe("A");
@@ -29,4 +30,16 @@ test("divide two numbers", () => {
 
 test("multiply two numbers", () => {
   expect(calculator.multiply(3, 3)).toBe(9);
+});
+
+test("caesar cipher", () => {
+  expect(caesarCipher("xyz", 3)).toBe("abc");
+});
+
+test("caesar cipher", () => {
+  expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+});
+
+test("caesar cipher", () => {
+  expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
 });

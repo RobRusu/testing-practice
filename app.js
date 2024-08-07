@@ -31,6 +31,40 @@ calculator.multiply = function multiply(num1, num2) {
   return num1 * num2;
 };
 
+function caesarCipher(string, shift) {
+  let cipher = "";
+
+  for (let i = 0; i < string.length; i++) {
+    let letter;
+    if (string.charAt(i).match(/[a-zA-Z]/i)) {
+      letter = string.charCodeAt(i);
+      if (
+        string.charAt(i) === string.charAt(i).toUpperCase() &&
+        letter + shift > 90
+      ) {
+        let difference = letter + shift - 122;
+        letter = 65 + (difference - 1);
+        cipher = cipher + String.fromCharCode(letter);
+      } else if (
+        string.charAt(i) === string.charAt(i).toLowerCase() &&
+        letter + shift > 122
+      ) {
+        let difference = letter + shift - 122;
+        letter = 97 + (difference - 1);
+        cipher = cipher + String.fromCharCode(letter);
+      } else {
+        cipher = cipher + String.fromCharCode(letter + shift);
+      }
+    } else {
+      letter = string.charAt(i);
+      cipher = cipher + letter;
+    }
+  }
+
+  return cipher;
+}
+
 exports.capitalize = capitalize;
 exports.reverseString = reverseString;
 exports.calculator = calculator;
+exports.caesarCipher = caesarCipher;
