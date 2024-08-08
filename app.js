@@ -42,7 +42,7 @@ function caesarCipher(string, shift) {
         string.charAt(i) === string.charAt(i).toUpperCase() &&
         letter + shift > 90
       ) {
-        let difference = letter + shift - 122;
+        let difference = letter + shift - 90;
         letter = 65 + (difference - 1);
         cipher = cipher + String.fromCharCode(letter);
       } else if (
@@ -64,7 +64,22 @@ function caesarCipher(string, shift) {
   return cipher;
 }
 
+function analyzeArray(array) {
+  let object = {};
+
+  let sum = array.reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
+  object.average = sum / array.length;
+  object.min = Math.min(...array);
+  object.max = Math.max(...array);
+  object.length = array.length;
+
+  return object;
+}
+
 exports.capitalize = capitalize;
 exports.reverseString = reverseString;
 exports.calculator = calculator;
 exports.caesarCipher = caesarCipher;
+exports.analyzeArray = analyzeArray;
